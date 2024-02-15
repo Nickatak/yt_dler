@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% from '_helpers.html' import render_field %}
+
+{% block title %}Tools | Login{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('auth.login') }}" method="POST">
+        {{ form.csrf_token }}
+        {{ render_field(form.email) }}
+        {{ render_field(form.password) }}
+        <button type="submit">Login</button>
+    </form>
+{% endblock %}

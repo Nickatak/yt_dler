@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Youtube Downloader{% endblock %}
+
+{% block head %}
+    <script src="{{ url_for('static', filename='scripts/yt_dler.js') }}"></script>
+    <link href="{{ url_for('static', filename='styles/yt_dler.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <form id="yt_dler" class="yt_dler">
+        {{ form.csrf_token }}
+        <div class="container">{{ form.yt_url() }}</div>
+        <button id="download" class="download" type="submit" aria-label="Download">Download Video.</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  web:
+    # Give your image a static name
+    image: local/webp_converter
+    build:
+      context: .
+    # Give your container a static name
+    container_name: web_site
+    volumes:
+      - .:/app
+    # Expose ports
+    ports:
+      - 4000:4000
+    # So we can use pdb.set_trace()
+    stdin_open: true
+    tty: true
+
+  redis:
+    image: redis:7.2.4-alpine
+    container_name: "redis"
+    ports:
+      - 6379:6379
+  celery_worker:
+    image: local/celery_worker
+    build:
+      context: .
+    command: /app/compose/start_celery_worker
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_APP=app
