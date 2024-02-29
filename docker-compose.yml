@@ -18,14 +18,15 @@ services:
 
   redis:
     image: redis:7.2.4-alpine
-    container_name: "redis"
+    container_name: redis
     ports:
       - 6379:6379
   celery_worker:
     image: local/celery_worker
+    container_name: celery
     build:
       context: .
-    command: /app/compose/start_celery_worker
+    command: /app/scripts/start_celery_worker
     volumes:
       - .:/app
     environment:

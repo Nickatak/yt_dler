@@ -3,5 +3,4 @@
 set -o errexit
 set -o nounset
 
-rm -f './celerybeat.pid'
 celery -A app.start_celery worker --loglevel=info

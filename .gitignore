@@ -170,3 +170,6 @@ log/
 
 # Upload folder
 temp/*
+
+# Temporary dir for file management during development.
+old/

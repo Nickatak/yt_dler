@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cd ./frontend && npm run build 
+cd ..
+cp ./frontend/build/static -r ./app
+cp ./frontend/build/* ./app/static
+cp ./frontend/build/index.html ./app/static

@@ -3,11 +3,12 @@ import pathlib
 import uuid
 
 from dotenv import load_dotenv
-from flask import Flask, redirect, url_for
+from flask import Flask
 
 from app.blueprints import auth, yt_dler
 from app.extensions.celery import celery_init_app
 from app.extensions.flask_login import init_flask_login
+from app.extensions.react import serve_react
 from app.extensions.shell import add_shell_contexts
 from app.extensions.wtforms import init_csrf
 from app.models import create_all, drop_all
@@ -25,6 +26,7 @@ def create_app(CONFIG=DevConf):
     init_flask_login(app)
     add_shell_contexts(app)
     celery_init_app(app)
+    serve_react(app)
 
     if app.config["DROP_DB"]:
         drop_all()

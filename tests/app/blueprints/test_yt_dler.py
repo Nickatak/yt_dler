@@ -4,7 +4,7 @@ from flask import url_for
 def test_index_route_resolvable(app, client):
     with app.test_request_context():
         url = url_for("yt_dler.start_upload")
-        assert url == "/"
+        assert url == "/upload"
 
 
 def test_has_index_route(app, client):

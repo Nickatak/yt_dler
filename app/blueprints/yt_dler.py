@@ -9,7 +9,7 @@ from app.tasks.yt_dler import download_video
 yt_dler = Blueprint("yt_dler", __file__)
 
 
-@yt_dler.route("/", methods=["GET", "POST"])
+@yt_dler.route("/upload", methods=["GET", "POST"])
 def start_upload():
     """Handles rendering of the home page/starting a new download.
 

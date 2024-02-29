@@ -30,7 +30,7 @@ repos:
         ]
       - id: pytest
         name: pytest
-        entry: ./pre-commit/run_pytest
+        entry: ./scripts/run_pytest
         language: system
         types: [python]
         pass_filenames: false
